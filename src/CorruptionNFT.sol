@@ -23,13 +23,13 @@ contract CorruptionNFT is ERC721, ERC721URIStorage, Ownable {
 
     constructor() ERC721("Corruption NFT", "CORRUPT") Ownable(msg.sender) {}
 
-    function mint(uint8 politicianId, uint32 clearTime, string memory tokenURI) external {
+    function mint(uint8 politicianId, uint32 clearTime, string memory uri) external {
         require(_tokenIdCounter < MAX_SUPPLY, "Max supply reached");
         require(politicianId < 8, "Invalid politician ID");
         
         uint256 tokenId = _tokenIdCounter++;
         _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, tokenURI);
+        _setTokenURI(tokenId, uri);
         
         records[tokenId] = AccusationRecord({
             politicianId: politicianId,

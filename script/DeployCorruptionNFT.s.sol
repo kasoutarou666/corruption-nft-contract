@@ -9,7 +9,7 @@ contract DeployCorruptionNFT is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
         
-        CorruptionNFT nft = new CorruptionNFT();
+        new CorruptionNFT();
         
         vm.stopBroadcast();
     }
